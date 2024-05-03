@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="../static/gdsc-logo.png">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='gdsc-logo.png') }}">
+	<!-- Author Meta -->
+	<meta name="author" content="Dhananjay Bamane">
+	<!-- Meta Description -->
+	<meta name="description" content="A Machine Learning web-application built and deployed by Dhananjay Bamane">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="Liver Cirrhosis Prediction">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>Liver Cirrhosis Prediction</title>
+
+	<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- CSS -->
+
+	<link rel="stylesheet" href="../static/style.css">
+
+</head>
+
+<body>
+
+	<!-- PreLoader -->
+
+	<section id="loading">
+		<div class="loader">
+			<div class="inner one"></div>
+			<div class="inner two"></div>
+			<div class="inner three"></div>
+			<div class="loading-text">Loading...</div>
+		</div>
+	</section>
+
+	<!-- Main -->
+
+	<section id="Main">
+		<img src="../static/gdsc-main.png" alt="">
+		<h3>GDSC</h3>
+	</section>
+
+
+	<center>
+		<section id="heading">
+			<div class="container">
+				<h2>Liver Cirrhosis Prediction</h2>
+				<p>Please enter the patient details</p>
+			</div>
+
+
+			<!-- Text Area -->
+
+
+			<div class="ml-container">
+				<form action="{{ url_for('predict') }}" method="POST" onsubmit="AddRow()">
+					<div class="row">
+						<div class="column-1">
+
+							<input class="form-input" type="text" id="age" name="age"
+								placeholder="Enter Patient's age in years " required autocomplete="off" min="0"><br>
+
+							<input class="form-input" type="text" id="n_days" name="n_days" placeholder="N_days"
+								required autocomplete="off" min="0"><br>
+
+							<input class="form-input" type="text" id="drug" name="drug" placeholder="Enter Drug (D-penicillamine - 0 or Placebo - 1)" required
+								autocomplete="off" min="0"><br>
+
+							<input class="form-input" type="text" id="sex" name="sex"
+								placeholder="Enter Sex of a Patient (Female - 0 or Male - 1)" required autocomplete="off"
+								min="0"><br>
+
+							<input class="form-input" type="text" id="ascites" name="ascites" placeholder="Enter presence of Ascites (Yes - 1 or No - 0)"
+								required autocomplete="off" min="0"><br>
+
+							<input class="form-input" type="text" id="hepatomegaly" name="hepatomegaly"
+								placeholder="Enter presence of Hepatomegaly (Yes - 1 or No - 0)" required autocomplete="off" min="0"><br>
+
+							<input class="form-input" type="text" id="spiders" name="spiders"
+								placeholder="Enter presence of Spiders (Yes - 1 or No - 0)" required autocomplete="off" min="0"><br>
+
+							<input class="form-input" type="text" id="bilirubin" name="bilirubin"
+								placeholder="Enter Bilirubin in [mg/dl]" required autocomplete="off" min="0"><br>
+
+							<input class="form-input" type="text" id="cholesterol" name="cholesterol"
+								placeholder="Enter Cholesterol level in [mg/dl]" required autocomplete="off" min="0"><br>
+
+						</div>
+
+						<div class="column-2">
+
+							<input class="form-input" type="text" id="albumin" name="albumin"
+								placeholder="Enter Albumin" required autocomplete="off" min="0"><br>
+
+							<input class="form-input" type="text" id="copper" name="copper" placeholder="Enter Copper"
+								required autocomplete="off" min="0"><br>
+
+							<input class="form-input" type="text" id="alk_Phos" name="alk_Phos"
+								placeholder="Enter Alk_Phos" required autocomplete="off" min="0"><br>
+
+							<input class="form-input" type="text" id="sgot" name="sgot" placeholder="Enter Sgot"
+								required autocomplete="off" min="0"><br>
+
+							<input class="form-input" type="text" id="tryglicerides" name="tryglicerides"
+								placeholder="Enter Tryglicerides" required autocomplete="off" min="0"><br>
+
+							<input class="form-input" type="text" id="platelets" name="platelets"
+								placeholder="Enter Platelets" required autocomplete="off" min="0"><br>
+
+							<input class="form-input" type="text" id="prothrombin" name="prothrombin"
+								placeholder="Enter Prothrombin" required autocomplete="off" min="0"><br>
+
+							<input class="form-input" type="text" id="stage" name="stage" placeholder="Enter Historical  Stage of disease (1, 2, 3, or 4 )"
+								required autocomplete="off" min="0"><br>
+
+							<input class="form-input" type="text" id="edema" name="edema" placeholder="Enter edema"
+								required autocomplete="off" min="0"><br>
+
+							<!-- <select name="edema" id="edema" required="required" class="select1"
+								onchange="getSelectValue(this.value)">
+								<option value="Edema_N">Edema_N</option>
+								<option value="Edema_S">Edema_S</option>
+								<option value="Edema_Y">Edema_Y</option>
+							</select> -->
+
+						</div>
+					</div>
+
+					<input type="submit" class="my-cta-button" value="Predict" onclick="AddRow()">
+
+				</form>
+			</div>
+		</section>
+	</center>
+
+
+	<!-- Footer -->
+
+
+	<footer id="Footer">
+
+		<div class="footer">
+			<h3><span class="blue">G</span> <span class="red">o</span> <span class="yellow">o</span> <span
+					class="blue">g</span> <span class="green">l</span> <span class="red">e</span> Developers Students
+				Clubs</h3>
+			<p>Internship Project</p>
+
+			<ul class="socials">
+				<li><a target="_blank" href="https://github.com/"><i class="fa fa-github"></i></a></li>
+				<!-- <li><a target="_blank" href="https://www.linkedin.com/in/dhananjaybamane/"><i
+                            class="fa fa-linkedin-square"></i></a></li> -->
+			</ul>
+		</div>
+
+		<div class="last">
+			<p>An Machine learning web-application built with flask</p>
+		</div>
+
+	</footer>
+
+
+	<script>
+
+		var preloader = document.getElementById('loading');
+
+		window.addEventListener("load", function () {
+			preloader.style.display = "none";
+		})
+
+	</script>
+
+	<script>
+		function getSelectValue(select1) {
+		  if (select1 != '') {
+			$(".select2 option[value='" + select1 + "']").hide();
+			$(".select2 option[value!='" + select1 + "']").show();
+		  }
+		}
+	  </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="../static/gdsc-logo.png">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='gdsc-logo.png') }}">
+	<!-- Author Meta -->
+	<meta name="author" content="Dhananjay Bamane">
+	<!-- Meta Description -->
+	<meta name="description" content="A Machine Learning web-application built and deployed by Dhananjay Bamane">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="Liver Cirrhosis Prediction">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>Liver Cirrhosis Prediction</title>
+
+	<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- CSS -->
+
+	<link rel="stylesheet" href="../static/predict.css">
+
+</head>
+
+<body>
+
+    <!-- PreLoader -->
+
+    <section id="loading">
+        <div class="loader">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+            <div class="loading-text">Loading...</div>
+        </div>
+    </section>
+
+    <!-- Main -->
+
+    <section id="Main">
+		<img src="../static/gdsc-main.png" alt="">
+		<h3>GDSC</h3>
+	</section>
+
+
+    <section id="heading">
+            <div id="assess">
+                <div class="container">
+                    <h2>Liver Cirrhosis Prediction</h2>
+                </div>
+
+                <!-- Text Area -->
+
+                <!-- Result -->
+                <div class="results">
+                    {% if prediction == 0 %}
+                    
+                    <h1>Prediction: Patient is at stage of Censored</h1>
+
+                    {% elif prediction == 1 %}
+
+                    <h1>Prediction: Patient is at stage of Censored due to liver</h1>
+
+                    {% elif prediction == 2 %}
+
+                    <h1>Prediction: Patient has high risk of Death</h1>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+	</section>
+
+
+        <!-- Footer -->
+
+
+        <footer id="Footer">
+
+			<div class="footer">
+				<h3><span class="blue">G</span> <span class="red">o</span> <span class="yellow">o</span> <span
+						class="blue">g</span> <span class="green">l</span> <span class="red">e</span> Developers Students
+					Clubs</h3>
+				<p>Internship Project</p>
+	
+				<ul class="socials">
+					<li><a target="_blank" href="https://github.com/"><i class="fa fa-github"></i></a></li>
+					<!-- <li><a target="_blank" href="https://www.linkedin.com/in/dhananjaybamane/"><i
+								class="fa fa-linkedin-square"></i></a></li> -->
+				</ul>
+			</div>
+	
+			<div class="last">
+				<p>An Machine learning web-application built with flask</p>
+			</div>
+	
+		</footer>
+
+
+        <script>
+
+            var preloader = document.getElementById('loading');
+
+            window.addEventListener("load", function () {
+                preloader.style.display = "none";
+            })
+
+        </script>
+
+
+</body>
+
+</html>
